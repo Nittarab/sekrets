@@ -320,7 +320,7 @@ class Sekrets
 #
   module Blowfish
     def cipher(mode, key, data)
-      cipher = OpenSSL::Cipher.new('bf-cbc').send(mode)
+      cipher = OpenSSL::Cipher.new('AES-128-CBC').send(mode)
       cipher.key = Digest::SHA256.digest(key.to_s).slice(0,16)
       cipher.update(data) << cipher.final
     end
